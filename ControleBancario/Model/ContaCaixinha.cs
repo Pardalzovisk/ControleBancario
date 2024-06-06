@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleBancario.Model
 {
-    internal class ContaCaixinha
+    public class ContaCaixinha
     {
     }
 }
