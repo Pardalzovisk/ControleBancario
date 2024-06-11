@@ -14,17 +14,6 @@ namespace ControleBancario.Model
             protected double _saldo;
             public Cliente Titular { get; set; }
 
-            public Conta(double saldo, Cliente titular)
-            {
-                if (saldo <= 10.00)
-                {
-                    throw new ArgumentException("O saldo inicial deve ser superior a R$10,00.");
-                }
-
-                _saldo = saldo;
-                Titular = titular ?? throw new ArgumentException("A conta deve ter um titular.");
-            }
-
             public Conta(long numero, double saldo, Cliente titular)
             {
                 if (saldo <= 10.00)
@@ -37,9 +26,10 @@ namespace ControleBancario.Model
                 Titular = titular ?? throw new ArgumentException("A conta deve ter um titular.");
             }
 
+            public long Numero => _numero;
             public double Saldo => _saldo;
 
-            public void Depositar(double valor)
+            public virtual void Depositar(double valor)
             {
                 if (valor > 0)
                 {
